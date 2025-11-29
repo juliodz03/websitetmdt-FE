@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../../../components/Layout';
 import { adminAPI, productAPI } from '../../../lib/api';
@@ -36,7 +36,7 @@ export default function CreateProduct() {
     isFeatured: false
   });
 
-  useState(() => {
+  useEffect(() => {
     if (!user || user.role !== 'admin') {
       router.push('/');
       return;
